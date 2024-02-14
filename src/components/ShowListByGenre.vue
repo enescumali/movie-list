@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import { Genres, type Show } from '@/types/Show';
+import { type Genre, type Show } from '@/types/Show';
 import { getShowsByGenre } from '@/services/api';
 import { onBeforeMount, ref } from 'vue';
 import ShowList from './ShowList.vue';
+
+const props = defineProps<{
+  genre: Genre;
+}>();
 
 const shows = ref<Show[] | null>([]);
 const showError = ref<String | ''>();
 
 onBeforeMount(async () => {
-  const { data, error } = await getShowsByGenre(Genres.Drama); // todo
+  const { data, error } = await getShowsByGenre(props.genre);
 
   shows.value = data;
-  showError.value = error.value?.message;
+  showError.value = error?.value?.message;
 });
 </script>
 
@@ -25,4 +29,3 @@ onBeforeMount(async () => {
 </template>
 
 <style scoped></style>
-@/types/Show

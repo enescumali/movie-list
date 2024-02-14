@@ -1,5 +1,4 @@
-import type { Movie } from '@/types/Show';
-import { reactive, ref, toRefs } from 'vue';
+import { reactive, toRefs } from 'vue';
 
 interface State<T> {
   data: T | null;

@@ -1,11 +1,9 @@
-<script setup lang="ts">
-import HomeDashboard from './views/HomeDashboard.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <header>
     <div class="wrapper">
-      <HomeDashboard />
+      <RouterView />
     </div>
   </header>
 </template>

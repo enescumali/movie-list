@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <a
     class="show-card-container rounded-lg block cursor-pointer"
-    @click="$router.push(`/movies/${show.id}`)"
+    @click="$router.push(`/movies/${show.show?.id}`)"
   >
     <div class="flex items-center justify-center rounded-lg">
       <div class="grid max-w-[370px] bg-black bg-slate-100 flex-col rounded-lg">

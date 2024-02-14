@@ -1,26 +1,25 @@
 <script setup lang="ts">
-import type { Show } from '@/types/Show';
-import { onBeforeMount, ref } from 'vue';
-import { useFetch } from './hooks/useFetch';
-import MostPopularShowsVue from '@/components/MostPopularShows.vue';
-
-const movies = ref<Show[] | null>([]);
-const movieError = ref<String | ''>();
-
-onBeforeMount(async () => {
-  const { data, error } = await useFetch<Show[]>('https://api.tvmaze.com/schedule');
-
-  movies.value = data.value;
-
-  movieError.value = error.value?.message;
-});
+import ShowListByGenreVue from '@/components/ShowListByGenre.vue';
+import { Genres } from '@/types/Show';
 </script>
 
 <template>
   <main class="p-8">
     <section>
-      <h2 class="text-white text-xl">Most popular</h2>
-      <MostPopularShowsVue />
+      <h2 class="text-white text-xl">Actions</h2>
+      <ShowListByGenreVue :genre="Genres.Action" />
+    </section>
+    <section>
+      <h2 class="text-white text-xl">Drama</h2>
+      <ShowListByGenreVue :genre="Genres.Drama" />
+    </section>
+    <section>
+      <h2 class="text-white text-xl">Comedy</h2>
+      <ShowListByGenreVue :genre="Genres.Comedy" />
+    </section>
+    <section>
+      <h2 class="text-white text-xl">Family</h2>
+      <ShowListByGenreVue :genre="Genres.Family" />
     </section>
   </main>
 </template>

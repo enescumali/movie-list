@@ -1,4 +1,4 @@
-# Movie list
+# TV shows
 
 ## Project Setup
 

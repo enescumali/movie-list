@@ -1,17 +1,25 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { getShowById } from '@/services/api';
+import type { Show } from '@/types/Show';
+import { onBeforeMount, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
-const movieId = useRoute().params.id;
+const showId = useRoute().params.id;
 
-onMounted(() => {
-  console.log('movieId', movieId);
+const show = ref<Show | null>();
+const showError = ref<String | ''>();
+
+onBeforeMount(async () => {
+  const { data, error } = await getShowById(showId);
+
+  show.value = data;
+  showError.value = error?.value?.message;
 });
 </script>
 
 <template>
   <div class="about">
-    <h1>Movie {{ movieId }}</h1>
+    <h1 class="text-white">{{ show?.name }}</h1>
   </div>
 </template>
 
