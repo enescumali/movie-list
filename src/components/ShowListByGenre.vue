@@ -14,7 +14,7 @@ const showError = ref<String | ''>();
 onBeforeMount(async () => {
   const { data, error } = await getShowsByGenre(props.genre);
 
-  shows.value = data;
+  shows.value = data.slice(0, 5);
   showError.value = error?.value?.message;
 });
 </script>

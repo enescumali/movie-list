@@ -13,20 +13,20 @@ defineProps<{
   >
     <div class="flex items-center justify-center rounded-lg">
       <div class="grid max-w-[370px] bg-black bg-slate-100 flex-col rounded-lg">
-        <div class="image-container">
+        <div class="image-container rounded-lg">
           <img
             :src="`${show.show?.image?.medium}`"
             width="375"
             height="200"
             class="justify-center grid h-80 object-cover"
-            :alt="`${show.name}`"
+            :alt="`${show.show?.name}`"
           />
           <div class="show-summary line-clamp-6 text-sm" v-html="`${show.show.summary}`"></div>
         </div>
 
         <div class="group p-6 grid z-10 show-detail gap-4">
           <h2 class="group-hover:underline font-bold sm:text-l line-clamp-2 text-white h-12">
-            {{ show.name }}
+            {{ show.show?.name }}
           </h2>
 
           <div class="flex justify-between">
