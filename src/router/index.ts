@@ -1,5 +1,5 @@
-import HomePageVue from '@/views/HomePage.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import HomeDashboardVue from '@/views/HomeDashboard.vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomePageVue
+      component: HomeDashboardVue
     },
     {
       path: '/movies/:id',
@@ -15,6 +15,6 @@ const router = createRouter({
       component: () => import('../views/MovieDetail.vue')
     }
   ]
-})
+});
 
-export default router
+export default router;

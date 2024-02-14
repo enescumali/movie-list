@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
@@ -8,7 +7,6 @@ const movieId = useRoute().params.id;
 onMounted(() => {
   console.log('movieId', movieId);
 });
-
 </script>
 
 <template>
@@ -19,6 +17,5 @@ onMounted(() => {
 
 <style>
 @media (min-width: 1024px) {
-  
 }
 </style>
