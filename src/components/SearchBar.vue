@@ -35,14 +35,14 @@ const onInput = debounce(() => {
     <div
       class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg overflow-hidden"
     >
-      <div class="grid place-items-center h-full w-12 text-gray-300 bg-gray-800">
+      <div class="grid place-items-center h-full w-12 text-gray-300 bg-zinc-900">
         <IconSearch />
       </div>
 
       <input
         id="search"
         v-model="searchTerm"
-        class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 bg-gray-800 text-white"
+        class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 bg-zinc-900 text-white"
         type="text"
         placeholder="Search shows..."
         @input="onInput"

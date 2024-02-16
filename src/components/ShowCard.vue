@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { ShowListItemResponse, ShowResponse } from '@/types/Show';
-import IconRatingVue from './icons/IconRating.vue';
+import type { ShowDetail } from '@/types/Show';
+import ShowRating from './ShowRating.vue';
 
 defineProps<{
-  show: ShowResponse | ShowListItemResponse;
+  show: ShowDetail;
 }>();
 </script>
 
 <template>
   <a
-    class="show-card-container rounded-lg block cursor-pointer overflow-hidden relative"
+    class="show-card-container rounded-lg block cursor-pointer overflow-hidden relative bg-black relative"
     @click="$router.push(`/shows/${show.id}`)"
   >
     <div class="flex items-center justify-center">
@@ -31,11 +31,10 @@ defineProps<{
           </h2>
 
           <div class="flex justify-between">
-            <span class="text-slate-400 font-semibold"> {{ show?.season }} </span>
-            <div class="font-black text-l flex gap-x-1 items-center text-white">
-              <span>{{ show?.rating?.average || '--' }}</span>
-              <IconRatingVue />
-            </div>
+            <span class="text-slate-400 font-semibold"
+              >S.{{ show?.season }} - {{ show.episodeName }}</span
+            >
+            <ShowRating :rating="show?.rating?.average" />
 
             <!-- <div class="flex flex-col items-end">
               <div class="h-7" />
@@ -49,22 +48,12 @@ defineProps<{
 </template>
 
 <style scoped>
-.show-card-container {
-  background: #000;
-  position: relative;
-}
-
 .show-card-container:hover img {
   opacity: 0.2;
 }
 
 .show-detail {
-  bottom: 0%;
   background: var(--primary-gray);
-  width: 100%;
-}
-.show-card-container:hover .show-detail {
-  display: grid;
 }
 
 .show-card-container:hover .show-summary {

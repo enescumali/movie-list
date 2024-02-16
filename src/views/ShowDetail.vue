@@ -43,7 +43,7 @@ onBeforeMount(async () => {
             class="sm:w-1/3 w-full object-cover object-center rounded border border-gray-200"
             :src="`${show?.image?.medium}`"
           />
-          <div class="sm:w-2/3 w-full pl-10 lg:py-6 mt-6 lg:mt-0">
+          <div class="sm:w-2/3 w-full sm:pl-10 lg:py-6 mt-6 lg:mt-0">
             <p class="text-white" v-html="show?.summary"></p>
             <a
               v-if="show?.externals?.imdb"

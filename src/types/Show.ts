@@ -3,7 +3,8 @@ export const Genres = {
   Drama: 'Drama',
   Thriller: 'Thriller',
   Comedy: 'Comedy',
-  Family: 'Family'
+  Family: 'Family',
+  Fantasy: 'Fantasy'
 } as const;
 
 export type Genre = (typeof Genres)[keyof typeof Genres];
@@ -121,47 +122,9 @@ export interface ShowListItemResponse {
   };
 }
 
-export interface ShowDetail {
-  id: number;
-  name: string;
-  language: string;
-  genres: Genre[];
-  premiered: string;
-  ended: string;
-  officialSite: string;
+// type that we need in the ShowDetail component
+// which has season data too
+export type ShowDetail = {
   season: number;
-  rating: {
-    average: number | null;
-  };
-  network: {
-    id: number;
-    name: string;
-    country: {
-      name: string;
-      code: string;
-      timezone: string;
-    };
-    officialSite: string | null;
-  };
-  webChannel: null;
-  dvdCountry: null;
-  externals: {
-    tvrage: null;
-    thetvdb: number;
-    imdb: null;
-  };
-  image: {
-    medium: string;
-    original: string;
-  };
-  summary: string;
-  updated: number;
-  _links: {
-    self: {
-      href: string;
-    };
-    previousepisode: {
-      href: string;
-    };
-  };
-}
+  episodeName: string;
+} & ShowResponse;

@@ -2,8 +2,10 @@ import { BASE_URL } from '@/config';
 import type { Genre, ShowResponse, ShowListItemResponse } from '@/types/Show';
 import { useFetch } from '@/views/hooks/useFetch';
 
-export const getShowsByGenre = async (genre: Genre) => {
-  const { data, error, loading } = await useFetch<ShowListItemResponse[]>(`${BASE_URL}/schedule`);
+export const getShowsByGenre = async (genre: Genre, country: string) => {
+  const { data, error, loading } = await useFetch<ShowListItemResponse[]>(
+    `${BASE_URL}/schedule?country=${country}`
+  );
 
   let filteredShows: ShowListItemResponse[] = [];
 
@@ -27,4 +29,20 @@ export const findShowByQuery = async (query: string) => {
   );
 
   return { data: data.value, error, loading: loading.value };
+};
+
+export const getMostPopularShows = async (country: string = 'NL') => {
+  const { data, error, loading } = await useFetch<ShowListItemResponse[]>(
+    `${BASE_URL}/schedule/?country=${country}`
+  );
+
+  let mostPopularShows: ShowListItemResponse[] = [];
+
+  if (data.value) {
+    mostPopularShows = data.value.sort((a, b) => {
+      return Number(b?.show?.rating?.average) - Number(a?.show?.rating?.average);
+    });
+  }
+
+  return { data: mostPopularShows, error, loading: loading.value };
 };
