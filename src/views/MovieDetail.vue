@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { getShowById } from '@/services/api';
-import type { Show } from '@/types/Show';
+import type { ShowResponse } from '@/types/Show';
 import { onBeforeMount, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const showId = useRoute().params.id as string; // don't know why vue thinks params.id can also be an array
 
-const show = ref<Show | null>();
+const show = ref<ShowResponse | null>();
 const showError = ref<String | ''>();
 
 onBeforeMount(async () => {

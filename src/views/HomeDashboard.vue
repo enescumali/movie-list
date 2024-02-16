@@ -9,7 +9,7 @@ const ShowListByGenre = defineAsyncComponent({
 </script>
 
 <template>
-  <main class="p-8">
+  <main>
     <section>
       <h2 class="text-white text-3xl">Drama</h2>
       <Suspense>
