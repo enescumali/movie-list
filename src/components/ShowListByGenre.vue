@@ -3,6 +3,7 @@ import { type Genre, type ShowListItemResponse } from '@/types/Show';
 import { getShowsByGenre } from '@/services/api';
 import { onBeforeMount, ref } from 'vue';
 import ShowList from './ShowList.vue';
+import ShowCardListSkeleton from './skeletons/ShowCardListSkeleton.vue';
 
 const props = defineProps<{
   genre: Genre;
@@ -10,19 +11,24 @@ const props = defineProps<{
 
 const shows = ref<ShowListItemResponse[] | null>([]);
 const showError = ref<String | ''>();
+const isLoading = ref<boolean>(true);
 
 onBeforeMount(async () => {
-  const { data, error } = await getShowsByGenre(props.genre);
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const { data, error, loading } = await getShowsByGenre(props.genre);
 
   shows.value = data.slice(0, 5); // for now only show 5 shows
   showError.value = error?.value?.message;
+  isLoading.value = loading;
 });
 </script>
 
 <template>
   <section>
+    <ShowCardListSkeleton v-if="isLoading" />
     <p v-if="showError">Something went wrong</p>
     <div v-if="shows && shows.length > 0">
+      <h2 class="text-white text-3xl mb-6">{{ genre }}</h2>
       <ShowList :shows="shows" />
     </div>
   </section>

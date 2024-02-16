@@ -12,7 +12,7 @@ export const useFetch = async <T>(url: string, options?: Record<string, unknown>
     loading: false
   });
 
-  const fetchDate = async () => {
+  const fetchData = async () => {
     state.loading = true;
 
     try {
@@ -33,7 +33,7 @@ export const useFetch = async <T>(url: string, options?: Record<string, unknown>
     }
   };
 
-  await fetchDate();
+  await fetchData();
 
   return {
     ...toRefs(state)

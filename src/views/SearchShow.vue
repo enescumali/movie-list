@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Show, type ShowListItemResponse } from '@/types/Show';
+import { type ShowResponse } from '@/types/Show';
 import { onBeforeMount, ref, watch } from 'vue';
 import ShowCardSkeletonVue from '@/components/skeletons/ShowCardSkeleton.vue';
 import { useRoute } from 'vue-router';
@@ -8,16 +8,16 @@ import ShowCardVue from '@/components/ShowCard.vue';
 
 const route = useRoute();
 
-const show = ref<ShowListItemResponse[] | null>([]);
+const show = ref<ShowResponse | null>(null);
 const showError = ref<String | ''>();
 const isLoading = ref<Boolean>(false);
 
 const findShow = async () => {
   const { data, error, loading } = await findShowByQuery(route.query.q as string);
-  console.log(loading);
-  isLoading.value = loading;
+
   show.value = data;
   showError.value = error?.value?.message;
+  isLoading.value = loading;
 };
 
 onBeforeMount(async () => await findShow());

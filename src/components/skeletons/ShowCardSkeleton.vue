@@ -1,5 +1,5 @@
 <template>
-  <a class="animate-pulse show-card-container rounded-lg block cursor-pointer">
+  <div class="animate-pulse show-card-container rounded-lg block cursor-pointer">
     <div class="flex items-center justify-center rounded-lg">
       <div class="grid max-w-[370px] bg-black bg-slate-100 flex-col rounded-lg">
         <div class="image-container rounden-lg">
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-  </a>
+  </div>
 </template>
 <style scoped>
 .show-card-container {

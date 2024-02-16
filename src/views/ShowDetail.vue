@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import GenreBadgesVue from '@/components/GenreBadges.vue';
 import IconIMDB from '@/components/icons/IconIMDB.vue';
+import ShowDetailSkeleton from '@/components/skeletons/ShowDetailSkeleton.vue';
 import { getShowById } from '@/services/api';
 import type { ShowResponse } from '@/types/Show';
 import { onBeforeMount, ref } from 'vue';
@@ -10,19 +11,24 @@ const showId = useRoute().params.id as string; // don't know why vue thinks para
 
 const show = ref<ShowResponse | null>();
 const showError = ref<String | ''>();
+const isLoading = ref<boolean>(true);
 
 onBeforeMount(async () => {
-  const { data, error } = await getShowById(showId);
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const { data, error, loading } = await getShowById(showId);
 
   show.value = data;
   showError.value = error?.value?.message;
+  isLoading.value = loading;
 });
 </script>
 
 <template>
   <div>
     <section class="text-gray-700 body-font overflow-hidden">
-      <div class="container px-5 py-12 lg:w-4/5 mx-auto">
+      <ShowDetailSkeleton v-if="isLoading" />
+      <p v-if="showError">Error</p>
+      <div v-if="show" class="container px-5 py-12 lg:w-4/5 mx-auto">
         <div class="mb-10">
           <h1 class="text-white text-4xl title-font font-medium">
             {{ show?.name }}
@@ -53,8 +59,3 @@ onBeforeMount(async () => {
     </section>
   </div>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-}
-</style>

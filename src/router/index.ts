@@ -11,13 +11,13 @@ const router = createRouter({
       component: HomeDashboardVue
     },
     {
-      path: '/movies/:id',
-      name: 'movie-detail',
-      component: () => import('../views/MovieDetail.vue')
+      path: '/shows/:id',
+      name: 'show-detail',
+      component: () => import('../views/ShowDetail.vue')
     },
     {
       path: '/search',
-      name: 'Search',
+      name: 'search',
       component: SearchShowVue,
       props: (route) => ({ query: route.query.q })
     }

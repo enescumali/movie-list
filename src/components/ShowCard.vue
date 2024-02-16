@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type { ShowResponse } from '@/types/Show';
+import type { ShowListItemResponse, ShowResponse } from '@/types/Show';
 import IconRatingVue from './icons/IconRating.vue';
 
 defineProps<{
-  show: ShowResponse;
+  show: ShowResponse | ShowListItemResponse;
 }>();
 </script>
 
 <template>
   <a
     class="show-card-container rounded-lg block cursor-pointer overflow-hidden relative"
-    @click="$router.push(`/movies/${show.id}`)"
+    @click="$router.push(`/shows/${show.id}`)"
   >
     <div class="flex items-center justify-center">
       <div class="grid max-w-[370px] flex-col">
