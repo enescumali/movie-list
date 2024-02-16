@@ -9,9 +9,9 @@ const ShowListByGenre = defineAsyncComponent({
 </script>
 
 <template>
-  <main>
+  <div class="gap-12 flex-col flex">
     <section>
-      <h2 class="text-white text-3xl">Drama</h2>
+      <h2 class="text-white text-3xl mb-6">Drama</h2>
       <Suspense>
         <ShowListByGenre :genre="Genres.Drama" />
 
@@ -21,7 +21,7 @@ const ShowListByGenre = defineAsyncComponent({
       </Suspense>
     </section>
     <section>
-      <h2 class="text-white text-3xl">Actions</h2>
+      <h2 class="text-white text-3xl mb-6">Action</h2>
       <Suspense>
         <ShowListByGenre :genre="Genres.Action" />
 
@@ -31,7 +31,7 @@ const ShowListByGenre = defineAsyncComponent({
       </Suspense>
     </section>
     <section>
-      <h2 class="text-white text-3xl">Comedy</h2>
+      <h2 class="text-white text-3xl mb-6">Comedy</h2>
       <Suspense>
         <ShowListByGenre :genre="Genres.Comedy" />
 
@@ -41,7 +41,7 @@ const ShowListByGenre = defineAsyncComponent({
       </Suspense>
     </section>
     <section>
-      <h2 class="text-white text-3xl">Family</h2>
+      <h2 class="text-white text-3xl mb-6">Family</h2>
       <Suspense>
         <ShowListByGenre :genre="Genres.Family" />
 
@@ -50,5 +50,5 @@ const ShowListByGenre = defineAsyncComponent({
         </template>
       </Suspense>
     </section>
-  </main>
+  </div>
 </template>

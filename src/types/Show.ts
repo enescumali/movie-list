@@ -14,7 +14,7 @@ export interface ShowResponse {
   name: string;
   type: string;
   language: string;
-  genres: string[];
+  genres: Genre[];
   status: string;
   runtime: number;
   averageRuntime: number;

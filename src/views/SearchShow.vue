@@ -1,46 +1,46 @@
 <script setup lang="ts">
-import { type Show, type ShowListItem } from '@/types/Show';
+import { type Show, type ShowListItemResponse } from '@/types/Show';
 import { onBeforeMount, ref, watch } from 'vue';
-import ShowCardListSkeletonVue from '@/components/skeletons/ShowCardListSkeleton.vue';
+import ShowCardSkeletonVue from '@/components/skeletons/ShowCardSkeleton.vue';
 import { useRoute } from 'vue-router';
 import { findShowByQuery } from '@/services/api';
 import ShowCardVue from '@/components/ShowCard.vue';
 
 const route = useRoute();
 
-const show = ref<ShowListItem[] | null>([]);
+const show = ref<ShowListItemResponse[] | null>([]);
 const showError = ref<String | ''>();
+const isLoading = ref<Boolean>(false);
 
 const findShow = async () => {
-  const { data, error } = await findShowByQuery(route.query.q);
-
+  const { data, error, loading } = await findShowByQuery(route.query.q as string);
+  console.log(loading);
+  isLoading.value = loading;
   show.value = data;
   showError.value = error?.value?.message;
 };
 
-onBeforeMount(async () => findShow);
-
-watch(route, () => {
-  console.log(route.query.q);
-  findShow();
-});
+onBeforeMount(async () => await findShow());
+watch(route, async () => await findShow());
 </script>
 
 <template>
   <main class="p-8">
     <section>
-      <h2 class="text-white text-3xl">Results</h2>
-      <Suspense>
-        <div class="text-white">
-          <p>results go here</p>
-          <p>{{ show?.name }}</p>
+      <div v-if="isLoading" class="max-w-52">
+        <ShowCardSkeletonVue />
+      </div>
+
+      <div class="text-white">
+        <p v-if="showError" class="mx-auto max-w-64 text-center">
+          Unfortunately we couldn't find what you are looking for.
+        </p>
+
+        <div v-else class="max-w-52">
+          <h2 class="text-white text-3xl mb-4">Results:</h2>
           <ShowCardVue :show="show" />
         </div>
-
-        <template #fallback>
-          <ShowCardListSkeletonVue />
-        </template>
-      </Suspense>
+      </div>
     </section>
   </main>
 </template>

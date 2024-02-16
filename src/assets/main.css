@@ -1,9 +1,10 @@
 :root {
     --primary-gray: #1a1a1a;
+    --base-background: rgb(31,31,31);
 }
 
 body {
-    background: black;
+    background: var(--base-background);
 }
 @tailwind base;
 @tailwind components;

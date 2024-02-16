@@ -2,9 +2,11 @@
 import MainHeader from '@/components/MainHeader.vue';
 </script>
 <template>
-  <div class="p-8 pt-32">
+  <div class="pt-28">
     <MainHeader />
-    <RouterView />
+    <main class="container mx-auto max-w-screen-xl px-4">
+      <RouterView />
+    </main>
   </div>
 </template>
 

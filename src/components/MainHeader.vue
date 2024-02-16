@@ -3,18 +3,15 @@ import SearchBarVue from '@/components/SearchBar.vue';
 import IconTV from './icons/IconTV.vue';
 </script>
 <template>
-  <header
-    class="gap-6 text-white p-8 fixed w-full bg-black z-50 top-0 left-0 align-center flex align-center justify-between"
-  >
-    <a class="w-12 cursor-pointer" @click="$router.push('/')">
-      <IconTV />
-    </a>
+  <header class="text-white p-4 fixed w-full bg-black z-50 top-0 left-0">
+    <div
+      class="container max-w-screen-xl mx-auto align-center flex align-center justify-between gap-6"
+    >
+      <a class="w-12 cursor-pointer" @click="$router.push('/')">
+        <IconTV />
+      </a>
 
-    <SearchBarVue />
+      <SearchBarVue />
+    </div>
   </header>
 </template>
-<style scoped>
-header {
-  box-shadow: 0 0 30px 1px #333;
-}
-</style>

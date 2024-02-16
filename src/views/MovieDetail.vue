@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import GenreBadgesVue from '@/components/GenreBadges.vue';
+import IconIMDB from '@/components/icons/IconIMDB.vue';
 import { getShowById } from '@/services/api';
 import type { ShowResponse } from '@/types/Show';
 import { onBeforeMount, ref } from 'vue';
@@ -20,19 +22,31 @@ onBeforeMount(async () => {
 <template>
   <div>
     <section class="text-gray-700 body-font overflow-hidden">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <div class="container px-5 py-12 lg:w-4/5 mx-auto">
+        <div class="mb-10">
+          <h1 class="text-white text-4xl title-font font-medium">
+            {{ show?.name }}
+          </h1>
+          <GenreBadgesVue :genres="show?.genres" />
+          <p class="font-bold text-gray-400">{{ show?.network?.name }}</p>
+        </div>
+
+        <div class="flex flex-wrap">
           <img
             alt="ecommerce"
-            class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+            class="sm:w-1/3 w-full object-cover object-center rounded border border-gray-200"
             :src="`${show?.image?.medium}`"
           />
-          <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-            <h1 class="text-white text-3xl title-font font-medium mb-1">
-              {{ show?.name }}
-            </h1>
-
+          <div class="sm:w-2/3 w-full pl-10 lg:py-6 mt-6 lg:mt-0">
             <p class="text-white" v-html="show?.summary"></p>
+            <a
+              v-if="show?.externals?.imdb"
+              target="_blank"
+              class="w-16 block mt-4"
+              :href="`https://www.imdb.com/title/${show?.externals?.imdb}`"
+            >
+              <IconIMDB />
+            </a>
           </div>
         </div>
       </div>

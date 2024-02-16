@@ -1,24 +1,20 @@
 <script setup lang="ts">
 import type { ShowResponse } from '@/types/Show';
-import { onMounted } from 'vue';
 import IconRatingVue from './icons/IconRating.vue';
 
-const props = defineProps<{
+defineProps<{
   show: ShowResponse;
 }>();
-onMounted(() => {
-  console.log(props.show);
-});
 </script>
 
 <template>
   <a
-    class="show-card-container rounded-lg block cursor-pointer"
+    class="show-card-container rounded-lg block cursor-pointer overflow-hidden relative"
     @click="$router.push(`/movies/${show.id}`)"
   >
-    <div class="flex items-center justify-center rounded-lg">
-      <div class="grid max-w-[370px] bg-black bg-slate-100 flex-col rounded-lg">
-        <div class="image-container rounded-lg">
+    <div class="flex items-center justify-center">
+      <div class="grid max-w-[370px] flex-col">
+        <div class="image-container">
           <img
             :src="`${show.image?.medium}`"
             width="375"
@@ -72,7 +68,7 @@ onMounted(() => {
 }
 
 .show-card-container:hover .show-summary {
-  opacity: 0.5;
+  opacity: 0.9;
 }
 
 .show-summary {

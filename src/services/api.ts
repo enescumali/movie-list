@@ -12,15 +12,13 @@ export const getShowsByGenre = async (genre: Genre) => {
       return show?.show?.genres?.includes(genre);
     });
   }
-  return { data: filteredShows, error, loading };
+  return { data: filteredShows, error, loading: loading.value };
 };
 
 export const getShowById = async (id: string) => {
   const { data, error, loading } = await useFetch<ShowResponse>(`${BASE_URL}/shows/${id}`);
 
-  // const flattenData = flattenShowData(data.value);
-
-  return { data: data.value, error, loading };
+  return { data: data.value, error, loading: loading.value };
 };
 
 export const findShowByQuery = async (query: string) => {
@@ -28,5 +26,5 @@ export const findShowByQuery = async (query: string) => {
     `${BASE_URL}/singlesearch/shows?q=${query}`
   );
 
-  return { data: data.value, error, loading };
+  return { data: data.value, error, loading: loading.value };
 };

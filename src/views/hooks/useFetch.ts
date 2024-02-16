@@ -19,13 +19,15 @@ export const useFetch = async <T>(url: string, options?: Record<string, unknown>
       const response = await fetch(url, options);
 
       if (!response.ok) {
-        throw new Error(response.statusText);
+        throw new Error(
+          response.statusText ||
+            'Something went wrong! Please try again. Meanwhile we are trying hard to fix it!'
+        );
       }
 
       state.data = await response.json();
     } catch (error: unknown) {
-      const typedError = error as Error;
-      state.error = typedError; // todo: check
+      state.error = error as Error; // todo: check
     } finally {
       state.loading = false;
     }
