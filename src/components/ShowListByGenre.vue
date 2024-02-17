@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Genre, type ShowListItemResponse } from '@/types/Show';
+import { type Genre, type ShowListItem } from '@/types/Show';
 import { getShowsByGenre } from '@/services/api';
 import { inject, onBeforeMount, ref, watch } from 'vue';
 import ShowList from './ShowList.vue';
@@ -12,7 +12,7 @@ const props = defineProps<{
   genre: Genre;
 }>();
 
-const shows = ref<ShowListItemResponse[] | null>([]);
+const shows = ref<ShowListItem[] | null>([]);
 const showError = ref<String | ''>();
 const isLoading = ref<boolean>(true);
 

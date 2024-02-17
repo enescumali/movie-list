@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type ShowListItemResponse } from '@/types/Show';
+import { type ShowListItem } from '@/types/Show';
 import { getMostPopularShows } from '@/services/api';
 import { onBeforeMount, ref, watch } from 'vue';
 import ShowList from './ShowList.vue';
@@ -9,7 +9,7 @@ const props = defineProps<{
   country: string;
 }>();
 
-const shows = ref<ShowListItemResponse[] | null>([]);
+const shows = ref<ShowListItem[] | null>([]);
 const showError = ref<String | ''>();
 const isLoading = ref<boolean>(true);
 

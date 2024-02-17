@@ -3,13 +3,13 @@ import GenreBadgesVue from '@/components/GenreBadges.vue';
 import IconIMDB from '@/components/icons/IconIMDB.vue';
 import ShowDetailSkeleton from '@/components/skeletons/ShowDetailSkeleton.vue';
 import { getShowById } from '@/services/api';
-import type { ShowResponse } from '@/types/Show';
+import type { Show } from '@/types/Show';
 import { onBeforeMount, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const showId = useRoute().params.id as string; // don't know why vue thinks params.id can also be an array
 
-const show = ref<ShowResponse | null>();
+const show = ref<Show | null>();
 const showError = ref<String | ''>();
 const isLoading = ref<boolean>(true);
 

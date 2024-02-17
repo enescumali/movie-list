@@ -1,6 +1,6 @@
-import type { ShowDetail, ShowListItemResponse } from '@/types/Show';
+import type { ShowCard, ShowListItem } from '@/types/Show';
 
-export const showDetail: ShowDetail = {
+export const showDetail: ShowCard = {
   id: 3344,
   url: 'https://www.tvmaze.com/shows/3344/the-kitchen',
   name: 'The Kitchen',
@@ -47,20 +47,20 @@ export const showDetail: ShowDetail = {
   updated: 1707713218,
   _links: {
     self: {
-      href: 'https://api.tvmaze.com/shows/3344'
-    },
-    previousepisode: {
-      href: 'https://api.tvmaze.com/episodes/2741864'
+      href: 'https://api.tvmaze.com/episodes/2735079'
     },
     nextepisode: {
-      href: 'https://api.tvmaze.com/episodes/2741865'
+      href: 'https://api.tvmaze.com/shows/73112'
+    },
+    previousepisode: {
+      href: 'https://api.tvmaze.com/shows/73110'
     }
   },
   season: 36,
   episodeName: 'Your Dish Is My Command'
 };
 
-export const showList: ShowListItemResponse[] = [
+export const showList: ShowListItem[] = [
   {
     id: 2768171,
     url: 'https://www.tvmaze.com/episodes/2768171/the-incredible-dr-pol-24x07-its-charles-hes-hurt',
@@ -83,7 +83,7 @@ export const showList: ShowListItemResponse[] = [
       name: 'The Incredible Dr. Pol',
       type: 'Documentary',
       language: 'English',
-      genres: ['Nature', 'Medical'],
+      genres: ['Family', 'Comedy'],
       status: 'Running',
       runtime: 60,
       averageRuntime: 60,
@@ -124,22 +124,22 @@ export const showList: ShowListItemResponse[] = [
       updated: 1707693301,
       _links: {
         self: {
-          href: 'https://api.tvmaze.com/shows/3501'
+          href: 'https://api.tvmaze.com/shows/40414'
         },
         previousepisode: {
-          href: 'https://api.tvmaze.com/episodes/2768166'
+          href: 'https://api.tvmaze.com/episodes/2770757'
         },
         nextepisode: {
-          href: 'https://api.tvmaze.com/episodes/2768171'
+          href: 'https://api.tvmaze.com/episodes/2770758'
         }
       }
     },
     _links: {
       self: {
-        href: 'https://api.tvmaze.com/episodes/2768171'
+        href: 'https://api.tvmaze.com/episodes/2770758'
       },
       show: {
-        href: 'https://api.tvmaze.com/shows/3501'
+        href: 'https://api.tvmaze.com/shows/40414'
       }
     }
   },
@@ -165,7 +165,7 @@ export const showList: ShowListItemResponse[] = [
       name: 'Austin City Limits',
       type: 'Variety',
       language: 'English',
-      genres: ['Music'],
+      genres: ['Fantasy'],
       status: 'Running',
       runtime: 60,
       averageRuntime: 60,
@@ -206,22 +206,22 @@ export const showList: ShowListItemResponse[] = [
       updated: 1705668058,
       _links: {
         self: {
-          href: 'https://api.tvmaze.com/shows/5498'
+          href: 'https://api.tvmaze.com/shows/40414'
         },
         previousepisode: {
-          href: 'https://api.tvmaze.com/episodes/2742771'
+          href: 'https://api.tvmaze.com/episodes/2770757'
         },
         nextepisode: {
-          href: 'https://api.tvmaze.com/episodes/2712879'
+          href: 'https://api.tvmaze.com/episodes/2770758'
         }
       }
     },
     _links: {
       self: {
-        href: 'https://api.tvmaze.com/episodes/2712879'
+        href: 'https://api.tvmaze.com/episodes/2770758'
       },
       show: {
-        href: 'https://api.tvmaze.com/shows/5498'
+        href: 'https://api.tvmaze.com/shows/40414'
       }
     }
   },
@@ -288,22 +288,22 @@ export const showList: ShowListItemResponse[] = [
       updated: 1705668032,
       _links: {
         self: {
-          href: 'https://api.tvmaze.com/shows/1597'
+          href: 'https://api.tvmaze.com/shows/40414'
         },
         previousepisode: {
-          href: 'https://api.tvmaze.com/episodes/2687401'
+          href: 'https://api.tvmaze.com/episodes/2770757'
         },
         nextepisode: {
-          href: 'https://api.tvmaze.com/episodes/2687402'
+          href: 'https://api.tvmaze.com/episodes/2770758'
         }
       }
     },
     _links: {
       self: {
-        href: 'https://api.tvmaze.com/episodes/2687402'
+        href: 'https://api.tvmaze.com/episodes/2770758'
       },
       show: {
-        href: 'https://api.tvmaze.com/shows/1597'
+        href: 'https://api.tvmaze.com/shows/40414'
       }
     }
   },
@@ -370,22 +370,22 @@ export const showList: ShowListItemResponse[] = [
       updated: 1708138133,
       _links: {
         self: {
-          href: 'https://api.tvmaze.com/shows/9539'
+          href: 'https://api.tvmaze.com/shows/40414'
         },
         previousepisode: {
-          href: 'https://api.tvmaze.com/episodes/2767445'
+          href: 'https://api.tvmaze.com/episodes/2770757'
         },
         nextepisode: {
-          href: 'https://api.tvmaze.com/episodes/2767446'
+          href: 'https://api.tvmaze.com/episodes/2770758'
         }
       }
     },
     _links: {
       self: {
-        href: 'https://api.tvmaze.com/episodes/2767446'
+        href: 'https://api.tvmaze.com/episodes/2770758'
       },
       show: {
-        href: 'https://api.tvmaze.com/shows/9539'
+        href: 'https://api.tvmaze.com/shows/40414'
       }
     }
   },
@@ -412,7 +412,7 @@ export const showList: ShowListItemResponse[] = [
       name: 'The Kitchen',
       type: 'Reality',
       language: 'English',
-      genres: ['Food'],
+      genres: ['Family'],
       status: 'Running',
       runtime: 60,
       averageRuntime: 60,
@@ -453,22 +453,22 @@ export const showList: ShowListItemResponse[] = [
       updated: 1707713218,
       _links: {
         self: {
-          href: 'https://api.tvmaze.com/shows/3344'
+          href: 'https://api.tvmaze.com/shows/40414'
         },
         previousepisode: {
-          href: 'https://api.tvmaze.com/episodes/2741864'
+          href: 'https://api.tvmaze.com/episodes/2770757'
         },
         nextepisode: {
-          href: 'https://api.tvmaze.com/episodes/2741865'
+          href: 'https://api.tvmaze.com/episodes/2770758'
         }
       }
     },
     _links: {
       self: {
-        href: 'https://api.tvmaze.com/episodes/2741865'
+        href: 'https://api.tvmaze.com/episodes/2770758'
       },
       show: {
-        href: 'https://api.tvmaze.com/shows/3344'
+        href: 'https://api.tvmaze.com/shows/40414'
       }
     }
   }

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { ShowDetail } from '@/types/Show';
+import type { ShowCard } from '@/types/Show';
 import ShowRating from './ShowRating.vue';
 
 defineProps<{
-  show: ShowDetail;
+  show: ShowCard;
 }>();
 </script>
 

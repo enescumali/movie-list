@@ -1,20 +1,22 @@
 <script setup lang="ts">
-import type { ShowListItemResponse } from '@/types/Show';
+import type { ShowListItem } from '@/types/Show';
 import ShowCard from './ShowCard.vue';
 import { computed } from 'vue';
+import type { ShowCard as ShowCardType } from '@/types/Show';
 
 const props = defineProps<{
-  shows: ShowListItemResponse[];
+  shows: ShowListItem[];
 }>();
 
-const showDetails = computed(() =>
-  props.shows.map((show) => {
-    return {
-      ...show.show,
-      season: show.season,
-      episodeName: show.name
-    };
-  })
+const showDetails = computed(
+  () =>
+    props.shows.map((show) => {
+      return {
+        ...show.show,
+        season: show.season,
+        episodeName: show.name
+      };
+    }) as ShowCardType[]
 );
 </script>
 

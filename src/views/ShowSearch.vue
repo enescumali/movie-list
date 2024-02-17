@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type ShowResponse } from '@/types/Show';
+import { type Show } from '@/types/Show';
 import { onBeforeMount, ref, watch } from 'vue';
 import ShowCardSkeletonVue from '@/components/skeletons/ShowCardSkeleton.vue';
 import { useRoute } from 'vue-router';
@@ -8,7 +8,7 @@ import ShowCardVue from '@/components/ShowCard.vue';
 
 const route = useRoute();
 
-const show = ref<ShowResponse | null>(null);
+const show = ref<Show | null>(null);
 const showError = ref<String | ''>();
 const isLoading = ref<Boolean>(false);
 
