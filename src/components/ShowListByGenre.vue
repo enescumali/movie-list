@@ -25,6 +25,7 @@ const fetchShowsByGenre = async () => {
 };
 
 onBeforeMount(async () => {
+  //todo: remove this timeout
   await new Promise((resolve) => setTimeout(resolve, 2000));
   fetchShowsByGenre();
 });

@@ -1,5 +1,5 @@
 import HomeDashboardVue from '@/views/HomeDashboard.vue';
-import SearchShowVue from '@/views/SearchShow.vue';
+import ShowSearchVue from '@/views/ShowSearch.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -18,7 +18,7 @@ const router = createRouter({
     {
       path: '/search',
       name: 'search',
-      component: SearchShowVue,
+      component: ShowSearchVue,
       props: (route) => ({ query: route.query.q })
     }
     // {

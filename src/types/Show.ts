@@ -43,9 +43,9 @@ export interface ShowResponse {
   webChannel: null;
   dvdCountry: null;
   externals: {
-    tvrage: null;
-    thetvdb: number;
-    imdb: null;
+    tvrage: number | null;
+    thetvdb: number | number;
+    imdb: string | null;
   };
   image: {
     medium: string;
