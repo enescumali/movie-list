@@ -22,7 +22,7 @@ defineProps<{ show: Show }>();
         :src="`${show?.image?.medium}`"
       />
       <div class="sm:w-2/3 w-full sm:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <p class="text-white" v-html="show?.summary"></p>
+        <p v-if="show?.summary" class="text-white" v-html="show?.summary"></p>
         <a
           v-if="show?.externals?.imdb"
           target="_blank"

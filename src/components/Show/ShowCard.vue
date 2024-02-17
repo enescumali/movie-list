@@ -14,7 +14,13 @@ defineProps<{
   >
     <div class="flex items-center justify-center">
       <div class="grid max-w-[370px] flex-col">
-        <div class="image-container">
+        <div class="image-container relative overflow-hidden">
+          <span
+            v-if="show.ranking"
+            class="text-3xl font-bold gap-x-2 text-black-600 absolute z-10 top-0 right-0 p-2 bg-amber-400"
+          >
+            # {{ show.ranking }}</span
+          >
           <img
             :src="`${show.image?.medium}`"
             width="375"
@@ -22,7 +28,11 @@ defineProps<{
             class="justify-center grid h-80 object-cover"
             :alt="`${show.name}`"
           />
-          <div class="show-summary line-clamp-6 text-sm" v-html="`${show?.summary}`"></div>
+          <div
+            v-if="show.summary"
+            class="show-summary line-clamp-6 text-sm z-20 absolute text-white text-l opacity-0 top-0 left-0 bottom-0 overflow-hidden w-full p-6"
+            v-html="`${show?.summary}`"
+          ></div>
         </div>
 
         <div class="group p-6 grid z-10 show-detail gap-4">
@@ -31,15 +41,16 @@ defineProps<{
           </h2>
 
           <div class="flex justify-between">
-            <span v-if="show?.season && show?.episodeName" class="text-slate-400 font-semibold"
-              >S.{{ show.season }} - {{ show.episodeName }}</span
-            >
-            <ShowRating :rating="show?.rating?.average" />
+            <div>
+              <span v-if="show?.season" class="text-slate-400 font-semibold line-clamp-1"
+                >Season: {{ show.season }}</span
+              >
+              <span v-if="show?.episodeName" class="text-slate-400 font-semibold line-clamp-1">{{
+                show.episodeName
+              }}</span>
+            </div>
 
-            <!-- <div class="flex flex-col items-end">
-              <div class="h-7" />
-              <span class="text-3xl font-bold gap-x-2 text-slate-300"> # 8 </span>
-            </div> -->
+            <ShowRating :rating="show?.rating?.average" />
           </div>
         </div>
       </div>
@@ -48,29 +59,20 @@ defineProps<{
 </template>
 
 <style scoped>
-.show-card-container:hover img {
-  opacity: 0.2;
-}
-
 .show-detail {
   background: var(--primary-gray);
 }
 
 .show-card-container:hover .show-summary {
-  opacity: 0.9;
+  opacity: 1;
+}
+
+.show-card-container:hover img {
+  opacity: 0.6;
 }
 
 .show-summary {
-  position: absolute;
-  opacity: 0;
-  color: white;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  overflow: hidden;
-  width: 100%;
-  background: rgba(var(--primary-gray), 0.1);
+  background: rgba(0, 0, 0, 0.7);
   transition: opacity 0.3s ease-in;
-  padding: 1rem;
 }
 </style>

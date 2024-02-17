@@ -106,6 +106,7 @@ export interface ShowListItem {
       href: string;
     };
   };
+  ranking?: number | null;
 }
 
 // type that we need in the ShowCard component
@@ -113,4 +114,5 @@ export interface ShowListItem {
 export type ShowCard = Show & {
   season?: number | null;
   episodeName?: string | null;
+  ranking?: number | null;
 };

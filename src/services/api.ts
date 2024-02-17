@@ -14,11 +14,11 @@ export const getShowsByGenre = async (genres: Genre[], country: string) => {
       const foundGenre = show?.show?.genres?.find((genre) => genres.includes(genre));
       if (foundGenre) {
         showListItems[foundGenre] = showListItems[foundGenre] || [];
-        showListItems[foundGenre].push(show);
+        showListItems[foundGenre]?.push(show);
       }
     });
   }
-  console.log(showListItems);
+
   return { data: showListItems, error, loading: loading.value };
 };
 

@@ -18,7 +18,15 @@ const isLoading = ref<boolean>(true);
 const fetchShowsByCountry = async () => {
   const { data, error, loading } = await getMostPopularShows(props.country);
 
-  shows.value = data.slice(0, 5); // for now only show 5 shows
+  shows.value = data
+    .map((showListItem, index) => {
+      return {
+        ...showListItem,
+        ranking: index + 1
+      };
+    })
+    .slice(0, 5); // for now only show 5 shows
+
   errorMessage.value = error.value ? DEFAULT_ERROR_MESSAGE : ''; // API doesn't return meaningful error messages
   isLoading.value = loading;
 };
@@ -41,7 +49,7 @@ watch(
     <ShowCardListSkeleton v-if="isLoading" />
     <ErrorStateVue v-if="errorMessage" :error="errorMessage" />
     <div v-if="shows && shows.length > 0">
-      <h2 class="text-white text-3xl mb-6">Most popular shows</h2>
+      <h2 class="text-white text-3xl mb-6">Most popular shows in {{ props.country }}</h2>
       <ShowList :shows="shows" />
     </div>
   </section>

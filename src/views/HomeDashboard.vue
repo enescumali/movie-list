@@ -1,28 +1,25 @@
 <script setup lang="ts">
-import { Genres } from '@/types/Show';
+import { Genres, type ShowListItemsByGenres } from '@/types/Show';
 import { inject, onBeforeMount, ref, watch } from 'vue';
 import type { CountryProvider } from '@/context/countryProvider';
 import { getShowsByGenre } from '@/services/api';
-import ShowListVue from '@/components/Show/ShowList.vue';
 import ShowCardListSkeleton from '@/components/states/skeletons/ShowCardListSkeleton.vue';
 import ErrorStateVue from '@/components/states/error/ErrorState.vue';
 import ShowListByPopularity from '@/components/Show/ShowListByPopularity.vue';
+import ShowListGroups from '@/components/Show/ShowListGroups.vue';
 
 const { country } = inject('country') as CountryProvider;
 
-interface ShowListItemsByGenres {
-  [key: string]: ShowListItemsByGenres[];
-}
-[];
+const showListGroups = ref<ShowListItemsByGenres | null>({});
 
-const showLists = ref<ShowListItemsByGenres[][] | null>([]);
 const errorMessage = ref<string | ''>();
 const isLoading = ref<boolean>(true);
 
 const fetchShowsByGenre = async () => {
   const { data, error, loading } = await getShowsByGenre(Object.values(Genres), country.value);
 
-  showLists.value = Object.entries(data);
+  showListGroups.value = data;
+
   errorMessage.value = error?.value?.message;
   isLoading.value = loading;
 };
@@ -49,9 +46,6 @@ watch(
 
     <ShowCardListSkeleton v-if="isLoading" />
     <ErrorStateVue v-if="errorMessage" :error="errorMessage" />
-    <section v-for="showList in showLists" :key="showList[0]">
-      <h2 class="text-white text-3xl mb-6">{{ showList[0] }}</h2>
-      <ShowListVue :shows="showList[1]" />
-    </section>
+    <ShowListGroups v-if="showListGroups" :groups="showListGroups" />
   </div>
 </template>
