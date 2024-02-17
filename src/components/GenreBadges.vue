@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div v-if="genres && genres?.length > 0" class="py-4">
+  <div v-if="genres && genres?.length > 0" class="genre-container py-4">
     <span
       v-for="genre in genres"
       :key="genre"

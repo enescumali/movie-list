@@ -13,6 +13,7 @@ describe('ShowList', () => {
     expect(showCards.length).toBe(showList.length);
 
     // check if season and episode name are injected/rendered properly
-    expect(showCards[0].text()).toContain(`S.${showList[0].season} - ${showList[0].name}`);
+    expect(showCards[0].text()).toContain(`Season: ${showList[0].season}`);
+    expect(showCards[0].text()).toContain(showList[0].name);
   });
 });

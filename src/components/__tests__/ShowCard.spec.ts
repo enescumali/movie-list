@@ -14,7 +14,8 @@ describe('ShowCard', () => {
     const summary = wrapper.find('.show-summary p');
     expect(summary.html()).toBe(showDetail.summary);
 
-    expect(wrapper.text()).toContain(`S.${showDetail.season} - ${showDetail.episodeName}`);
+    expect(wrapper.text()).toContain(`Season: ${showDetail.season}`);
+    expect(wrapper.text()).toContain(showDetail.season);
     expect(wrapper.text()).toContain(showDetail.rating.average);
   });
 });

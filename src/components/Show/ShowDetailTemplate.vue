@@ -12,7 +12,7 @@ defineProps<{ show: Show }>();
         {{ show?.name }}
       </h1>
       <GenreBadgesVue :genres="show?.genres" />
-      <p class="font-bold text-gray-400">{{ show?.network?.name }}</p>
+      <p class="font-bold text-gray-400 network-name">{{ show?.network?.name }}</p>
     </div>
 
     <div class="flex flex-wrap">
@@ -22,7 +22,7 @@ defineProps<{ show: Show }>();
         :src="`${show?.image?.medium}`"
       />
       <div class="sm:w-2/3 w-full sm:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <p v-if="show?.summary" class="text-white" v-html="show?.summary"></p>
+        <p v-if="show?.summary" class="text-white show-summary" v-html="show?.summary"></p>
         <a
           v-if="show?.externals?.imdb"
           target="_blank"
