@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ShowCard } from '@/types/Show';
-import ShowRating from './ShowRating.vue';
+import ShowRating from '../ShowRating.vue';
 
 defineProps<{
   show: ShowCard;
@@ -31,8 +31,8 @@ defineProps<{
           </h2>
 
           <div class="flex justify-between">
-            <span class="text-slate-400 font-semibold"
-              >S.{{ show?.season }} - {{ show.episodeName }}</span
+            <span v-if="show?.season && show?.episodeName" class="text-slate-400 font-semibold"
+              >S.{{ show.season }} - {{ show.episodeName }}</span
             >
             <ShowRating :rating="show?.rating?.average" />
 

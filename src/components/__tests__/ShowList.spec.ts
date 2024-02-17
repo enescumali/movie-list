@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import ShowList from '../ShowList.vue';
+import ShowList from '../Show/ShowList.vue';
 import { showList } from './__mocks__/show';
 
 describe('ShowList', () => {

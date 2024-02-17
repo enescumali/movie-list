@@ -4,10 +4,25 @@ export const Genres = {
   Thriller: 'Thriller',
   Comedy: 'Comedy',
   Family: 'Family',
-  Fantasy: 'Fantasy'
+  Fantasy: 'Fantasy',
+  Medical: 'Medical',
+  Nature: 'Nature',
+  Food: 'Food'
 } as const;
 
 export type Genre = (typeof Genres)[keyof typeof Genres];
+
+export interface ShowListItemsByGenres {
+  [Genres.Action]?: ShowListItem[];
+  [Genres.Drama]?: ShowListItem[];
+  [Genres.Thriller]?: ShowListItem[];
+  [Genres.Comedy]?: ShowListItem[];
+  [Genres.Family]?: ShowListItem[];
+  [Genres.Fantasy]?: ShowListItem[];
+  [Genres.Medical]?: ShowListItem[];
+  [Genres.Nature]?: ShowListItem[];
+  [Genres.Food]?: ShowListItem[];
+}
 
 interface Rating {
   average: number | null;
@@ -94,8 +109,8 @@ export interface ShowListItem {
 }
 
 // type that we need in the ShowCard component
-// which has season data too
-export type ShowCard = {
-  season: number;
-  episodeName: string;
-} & Show;
+// which has season and episode name data too
+export type ShowCard = Show & {
+  season?: number | null;
+  episodeName?: string | null;
+};

@@ -20,8 +20,7 @@ export const useFetch = async <T>(url: string, options?: Record<string, unknown>
 
       if (!response.ok) {
         throw new Error(
-          response.statusText ||
-            'Something went wrong! Please try again. Meanwhile we are trying hard to fix it!'
+          'Something went wrong! Please try again. Meanwhile we are trying hard to fix it!'
         );
       }
 

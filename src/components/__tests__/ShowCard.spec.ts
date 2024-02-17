@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import ShowCard from '../ShowCard.vue';
+import ShowCard from '../Show/ShowCard.vue';
 import { showDetail } from './__mocks__/show';
 
 describe('ShowCard', () => {

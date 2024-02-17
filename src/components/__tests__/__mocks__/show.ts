@@ -4,6 +4,7 @@ export const showDetail: ShowCard = {
   id: 3344,
   url: 'https://www.tvmaze.com/shows/3344/the-kitchen',
   name: 'The Kitchen',
+  season: 36,
   type: 'Reality',
   language: 'English',
   genres: ['Family'],
@@ -55,9 +56,7 @@ export const showDetail: ShowCard = {
     previousepisode: {
       href: 'https://api.tvmaze.com/shows/73110'
     }
-  },
-  season: 36,
-  episodeName: 'Your Dish Is My Command'
+  }
 };
 
 export const showList: ShowListItem[] = [
