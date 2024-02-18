@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { Genres, type ShowListItemsByGenres } from '@/types/Show';
+import { Genres, type ShowListGroups as ShowListGroupsType } from '@/types/Show';
 import { inject, onBeforeMount, ref, watch } from 'vue';
 import type { CountryProvider } from '@/context/countryProvider';
 import { getShowsByGenre } from '@/services/api';
 import ShowCardListSkeleton from '@/components/states/skeletons/ShowCardListSkeleton.vue';
 import ErrorStateVue from '@/components/states/error/ErrorState.vue';
-import ShowListByPopularity from '@/components/Show/ShowListByPopularity.vue';
 import ShowListGroups from '@/components/Show/ShowListGroups.vue';
 
 const { country } = inject('country') as CountryProvider;
 
-const showListGroups = ref<ShowListItemsByGenres | null>({});
+const showListGroups = ref<ShowListGroupsType[] | []>([]);
 
 const errorMessage = ref<string | ''>();
 const isLoading = ref<boolean>(true);
@@ -27,6 +26,7 @@ const fetchShowsByGenre = async () => {
 onBeforeMount(async () => {
   //todo: remove this timeout
   await new Promise((resolve) => setTimeout(resolve, 2000));
+
   fetchShowsByGenre();
 });
 
@@ -40,10 +40,6 @@ watch(
 
 <template>
   <div class="gap-12 flex-col flex">
-    <section>
-      <ShowListByPopularity :country="country" />
-    </section>
-
     <ShowCardListSkeleton v-if="isLoading" />
     <ErrorStateVue v-if="errorMessage" :error="errorMessage" />
     <ShowListGroups v-if="showListGroups" :groups="showListGroups" />

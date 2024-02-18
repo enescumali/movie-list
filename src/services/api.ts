@@ -1,29 +1,24 @@
 import { BASE_URL } from '@/config';
-import type { Genre, Show, ShowListItem, ShowListItemsByGenres } from '@/types/Show';
-import { useFetch } from '@/views/hooks/useFetch';
+import type { Genre, Show, ShowListGroups, ShowListItem } from '@/types/Show';
+import { getShowListGroupsByGenres } from '@/utils/getShowListGroupsByGenres';
+import { useFetch } from '@/hooks/useFetch';
 
 export const getShowsByGenre = async (genres: Genre[], country: string) => {
   const { data, error, loading } = await useFetch<ShowListItem[]>(
     `${BASE_URL}/schedule?country=${country}`
   );
 
-  const showListItems: ShowListItemsByGenres = {};
+  let showListGroups: ShowListGroups[] = [];
 
   if (data.value) {
-    data.value.map((show) => {
-      const foundGenre = show?.show?.genres?.find((genre) => genres.includes(genre));
-      if (foundGenre) {
-        showListItems[foundGenre] = showListItems[foundGenre] || [];
-        showListItems[foundGenre]?.push(show);
-      }
-    });
+    showListGroups = await getShowListGroupsByGenres(data.value, genres);
   }
 
-  return { data: showListItems, error, loading: loading.value };
+  return { data: showListGroups, error, loading: loading.value };
 };
 
 export const getShowById = async (id: string) => {
-  const { data, error, loading } = await useFetch<Show>(`${BASE_URL}/shows/${id}`);
+  const { data, error, loading } = await useFetch<Show>(`${BASE_URL}/shows/${id}?embed=cast`);
 
   return { data: data.value, error, loading: loading.value };
 };

@@ -1,4 +1,4 @@
-import type { ShowCard, ShowListItem } from '@/types/Show';
+import { Genres, type ShowCard, type ShowListGroups, type ShowListItem } from '@/types/Show';
 
 export const showDetail: ShowCard = {
   id: 3344,
@@ -72,7 +72,7 @@ export const showList: ShowListItem[] = [
     airstamp: '2024-02-18T02:00:00+00:00',
     runtime: 60,
     rating: {
-      average: null
+      average: 8
     },
     image: null,
     summary: '<p>A challenging farm call turns into an emergency for one of the team.</p>',
@@ -140,7 +140,8 @@ export const showList: ShowListItem[] = [
       show: {
         href: 'https://api.tvmaze.com/shows/40414'
       }
-    }
+    },
+    ranking: 1
   },
   {
     id: 2712879,
@@ -154,7 +155,7 @@ export const showList: ShowListItem[] = [
     airstamp: '2024-02-18T04:00:00+00:00',
     runtime: 60,
     rating: {
-      average: null
+      average: 9
     },
     image: null,
     summary: null,
@@ -222,7 +223,8 @@ export const showList: ShowListItem[] = [
       show: {
         href: 'https://api.tvmaze.com/shows/40414'
       }
-    }
+    },
+    ranking: 2
   },
   {
     id: 2687402,
@@ -236,7 +238,7 @@ export const showList: ShowListItem[] = [
     airstamp: '2024-02-18T03:00:00+00:00',
     runtime: 180,
     rating: {
-      average: null
+      average: 6
     },
     image: null,
     summary: null,
@@ -318,7 +320,7 @@ export const showList: ShowListItem[] = [
     airstamp: '2024-02-17T23:30:00+00:00',
     runtime: 30,
     rating: {
-      average: null
+      average: 5
     },
     image: null,
     summary: null,
@@ -470,5 +472,16 @@ export const showList: ShowListItem[] = [
         href: 'https://api.tvmaze.com/shows/40414'
       }
     }
+  }
+];
+
+export const showListGroups: ShowListGroups[] = [
+  {
+    genre: Genres.Food,
+    items: [showList[0], showList[1]]
+  },
+  {
+    genre: Genres.Family,
+    items: [showList[2], showList[3]]
   }
 ];

@@ -7,7 +7,8 @@ export const Genres = {
   Fantasy: 'Fantasy',
   Medical: 'Medical',
   Nature: 'Nature',
-  Food: 'Food'
+  Food: 'Food',
+  MostPopular: 'Most Popular'
 } as const;
 
 export type Genre = (typeof Genres)[keyof typeof Genres];
@@ -22,6 +23,12 @@ export interface ShowListItemsByGenres {
   [Genres.Medical]?: ShowListItem[];
   [Genres.Nature]?: ShowListItem[];
   [Genres.Food]?: ShowListItem[];
+  [Genres.MostPopular]?: ShowListItem[];
+}
+
+export interface ShowListGroups {
+  genre: Genre;
+  items: ShowListItem[];
 }
 
 interface Rating {
@@ -115,4 +122,5 @@ export type ShowCard = Show & {
   season?: number | null;
   episodeName?: string | null;
   ranking?: number | null;
+  airtime?: string | null;
 };

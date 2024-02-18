@@ -15,7 +15,8 @@ const showDetails = computed(
         ...show.show,
         season: show.season,
         episodeName: show.name,
-        ranking: show.ranking
+        ranking: show.ranking,
+        airtime: show.airtime
       };
     }) as ShowCardType[]
 );
@@ -23,7 +24,7 @@ const showDetails = computed(
 
 <template>
   <section
-    class="w-fit mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 justify-items-center justify-center gap-y-10 gap-x-6"
+    class="w-fit mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-3 justify-items-center justify-center gap-y-10 gap-x-6 mb-12"
   >
     <div v-for="showDetail in showDetails" :key="showDetail.id">
       <ShowCard :show="showDetail" />

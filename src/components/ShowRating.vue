@@ -7,9 +7,9 @@ defineProps<{
 
 <template>
   <div class="font-black text-l flex gap-x-1 items-center text-white">
-    <span>{{ rating || '--' }}</span>
+    <span class="min-w-4">{{
+      (rating && (Math.round(rating * 100) / 100).toFixed(1)) || '--'
+    }}</span>
     <IconRatingVue />
   </div>
 </template>
-
-<style scoped></style>

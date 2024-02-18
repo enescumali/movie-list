@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import type { Genre, ShowListItem, ShowListItemsByGenres } from '@/types/Show';
+import type { ShowListGroups } from '@/types/Show';
 import ShowListVue from '@/components/Show/ShowList.vue';
-import { computed } from 'vue';
+import { inject } from 'vue';
+import { Genres } from '@/types/Show';
+import type { CountryProvider } from '@/context/countryProvider';
 
-const props = defineProps<{
-  groups: ShowListItemsByGenres;
+const { country } = inject('country') as CountryProvider;
+defineProps<{
+  groups: ShowListGroups[];
 }>();
-
-const showListGroupTitles = computed(() => Object.keys(props.groups)) as unknown as Genre[];
 </script>
 <template>
-  <div>
-    <section v-for="showListGroupTitle in showListGroupTitles" :key="showListGroupTitle">
-      <h2 class="text-white text-3xl mb-6">{{ showListGroupTitle }}</h2>
-      <div v-if="groups">
-        <ShowListVue :shows="groups[showListGroupTitle] as ShowListItem[]" />
+  <div v-if="groups.length > 0">
+    <section v-for="group in groups" :key="group.genre" class="show-list-group-container">
+      <h2 class="show-list-genre-title text-white text-4xl mb-6">
+        {{ group.genre }} {{ group.genre === Genres.MostPopular ? `in ${country}` : '' }}
+      </h2>
+      <div>
+        <ShowListVue :shows="group.items" />
       </div>
     </section>
   </div>

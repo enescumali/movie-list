@@ -21,11 +21,6 @@ const router = createRouter({
       component: ShowSearchVue,
       props: (route) => ({ query: route.query.q })
     }
-    // {
-    //   path: '/search/:query',
-    //   name: 'search',
-    //   component: () => import('../views/SearchShow.vue')
-    // }
   ]
 });
 

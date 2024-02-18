@@ -40,13 +40,17 @@ defineProps<{
             {{ show?.name }}
           </h2>
 
-          <div class="flex justify-between">
+          <div class="flex justify-between items-end">
             <div>
               <span v-if="show?.season" class="text-slate-400 font-semibold line-clamp-1"
                 >Season: {{ show.season }}</span
               >
               <span v-if="show?.episodeName" class="text-slate-400 font-semibold line-clamp-1">{{
                 show.episodeName
+              }}</span>
+
+              <span v-if="show?.airtime" class="text-slate-200 font-semibold line-clamp-1">{{
+                show.airtime
               }}</span>
             </div>
 

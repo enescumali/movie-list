@@ -21,5 +21,6 @@ const handleChange = (event: Event) => {
     <option value="NL">NL</option>
     <option value="TR">TR</option>
     <option value="FR">FR</option>
+    <option value="GB">GB</option>
   </select>
 </template>

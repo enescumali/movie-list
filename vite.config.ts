@@ -15,7 +15,14 @@ export default defineConfig({
     coverage: {
       provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
-      exclude: ['**/src/context/**', '**/src/router/**', '**/src/types/**', '**/*.cjs']
+      exclude: [
+        '**/src/context/**',
+        '**/src/router/**',
+        '**/src/types/**',
+        '**/*.cjs',
+        '**/src/components/icons/**',
+        '**/src/components/states/skeletons/**'
+      ]
     }
   }
 });
