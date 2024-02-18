@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { Genres, type ShowListGroups as ShowListGroupsType } from '@/types/Show';
+import { type ShowListGroups as ShowListGroupsType } from '@/types/Show';
 import { inject, onBeforeMount, ref, watch } from 'vue';
 import type { CountryProvider } from '@/context/countryProvider';
 import { getShowsByGenre } from '@/services/api';
 import ShowCardListSkeleton from '@/components/states/skeletons/ShowCardListSkeleton.vue';
 import ErrorStateVue from '@/components/states/error/ErrorState.vue';
 import ShowListGroups from '@/components/Show/ShowListGroups.vue';
+import { Genres } from '@/config';
 
 const { country } = inject('country') as CountryProvider;
 
@@ -24,9 +25,6 @@ const fetchShowsByGenre = async () => {
 };
 
 onBeforeMount(async () => {
-  //todo: remove this timeout
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
   fetchShowsByGenre();
 });
 

@@ -15,8 +15,6 @@ const errorMessage = ref<string | ''>();
 const isLoading = ref<boolean>(true);
 
 onBeforeMount(async () => {
-  //todo: remove this timeout
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   const { data, error, loading } = await getShowById(showId);
 
   show.value = data;

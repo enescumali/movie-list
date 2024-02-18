@@ -1,11 +1,11 @@
 import {
-  Genres,
   type Genre,
   type ShowListGroups,
   type ShowListItem,
   type ShowListItemsByGenres
 } from '@/types/Show';
 import { getMostPopularShows } from './getMostPopularShows';
+import { Genres } from '@/config';
 
 export const getShowListGroupsByGenres = (data: ShowListItem[], genres: Genre[]) => {
   const showListItemsByGenres: ShowListItemsByGenres = {};

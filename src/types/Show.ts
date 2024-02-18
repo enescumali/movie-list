@@ -1,15 +1,4 @@
-export const Genres = {
-  Action: 'Action',
-  Drama: 'Drama',
-  Thriller: 'Thriller',
-  Comedy: 'Comedy',
-  Family: 'Family',
-  Fantasy: 'Fantasy',
-  Medical: 'Medical',
-  Nature: 'Nature',
-  Food: 'Food',
-  MostPopular: 'Most Popular'
-} as const;
+import type { Genres } from '@/config';
 
 export type Genre = (typeof Genres)[keyof typeof Genres];
 

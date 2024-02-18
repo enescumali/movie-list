@@ -13,6 +13,7 @@ defineProps<{ show: Show }>();
         <h1 class="text-white text-4xl title-font font-medium">
           {{ show?.name }}
         </h1>
+
         <div class="flex gap-2">
           <ShowRating :rating="show?.rating?.average" />
           <a
@@ -25,7 +26,9 @@ defineProps<{ show: Show }>();
           /></a>
         </div>
       </div>
-
+      <p class="text-gray-400 mt-2 mb-2">
+        {{ show.premiered.slice(0, 4) }} - {{ show.ended && `${show.ended.slice(0, 4)}` }}
+      </p>
       <GenreBadgesVue :genres="show?.genres" />
       <p class="text-gray-400 text-sm">
         {{ show?.schedule?.days.join(', ') }} at {{ show?.schedule?.time }}

@@ -2,7 +2,7 @@
 import type { ShowListGroups } from '@/types/Show';
 import ShowListVue from '@/components/Show/ShowList.vue';
 import { inject } from 'vue';
-import { Genres } from '@/types/Show';
+import { Genres } from '@/config';
 import type { CountryProvider } from '@/context/countryProvider';
 
 const { country } = inject('country') as CountryProvider;

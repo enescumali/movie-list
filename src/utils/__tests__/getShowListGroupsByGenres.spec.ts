@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { getShowListGroupsByGenres } from '../getShowListGroupsByGenres';
 import { showList } from '@/components/__tests__/__mocks__/show';
-import { Genres } from '@/types/Show';
+import { Genres } from '@/config';
 
 describe('getShowListGroupsByGenres', () => {
   it('groups shows by genre', () => {
