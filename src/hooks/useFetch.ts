@@ -26,7 +26,7 @@ export const useFetch = async <T>(url: string, options?: Record<string, unknown>
 
       state.data = await response.json();
     } catch (error: unknown) {
-      state.error = error as Error; // todo: check
+      state.error = error as Error;
     } finally {
       state.loading = false;
     }
