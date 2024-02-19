@@ -36,7 +36,7 @@ by selected country.
 
 Note: Project was developed with following versions:
 - node version: 18.18.2
-- 9.8.1
+- npm version: 9.8.1
 
 ```sh
 npm install
