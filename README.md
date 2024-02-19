@@ -32,11 +32,11 @@ by selected country.
 - Carousel for show lists.
 - List pages shows per genres.
 
+## Project Setup
+
 Note: Project was developed with following versions:
 - node version: 18.18.2
 - 9.8.1
- 
-## Project Setup
 
 ```sh
 npm install
