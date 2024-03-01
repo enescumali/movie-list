@@ -6,7 +6,11 @@ import { showListGroups } from './__mocks__/show';
 
 describe('ShowListGroups', () => {
   it('renders properly', () => {
-    const wrapper = mount(ShowListGroups, { props: { groups: showListGroups } });
+    const wrapper = mount(ShowListGroups, { props: { groups: showListGroups }, global:{
+      provide:{
+        country: { value:'NL'}
+      } }
+    });
 
     const showListGroupContainers = wrapper.findAll('.show-list-group-container');
 

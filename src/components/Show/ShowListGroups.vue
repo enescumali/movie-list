@@ -14,6 +14,7 @@ defineProps<{
   <div v-if="groups.length > 0">
     <section v-for="group in groups" :key="group.genre" class="show-list-group-container">
       <h2 class="show-list-genre-title text-white text-4xl mb-6">
+      
         {{ group.genre }} {{ group.genre === Genres.MostPopular ? `in ${country}` : '' }}
       </h2>
       <div>
