@@ -2,6 +2,7 @@
 import type { CountryProvider } from '@/context/countryProvider';
 import { inject } from 'vue';
 import { SUPPORTED_COUNTRIES } from '@/config';
+import router from '@/router';
 
 const { country, updateCountry } = inject('country') as CountryProvider;
 
@@ -9,6 +10,7 @@ const handleChange = (event: Event) => {
   const target = event.target as HTMLSelectElement;
 
   updateCountry(target.value);
+  router.push('/');
 };
 </script>
 <template>
