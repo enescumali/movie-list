@@ -30,10 +30,13 @@ export const getShowListGroupsByGenres = (data: ShowListItem[], genres: Genre[])
 
   const mostPopularShows = getMostPopularShows(data);
 
-  showListGroups.unshift({
-    genre: Genres.MostPopular,
-    items: mostPopularShows
-  });
+  if(mostPopularShows.length > 0){
+    showListGroups.unshift({
+      genre: Genres.MostPopular,
+      items: mostPopularShows
+    });
+  }
+  
 
   return showListGroups;
 };

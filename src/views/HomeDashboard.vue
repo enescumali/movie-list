@@ -7,6 +7,7 @@ import ShowCardListSkeleton from '@/components/states/skeletons/ShowCardListSkel
 import ErrorStateVue from '@/components/states/error/ErrorState.vue';
 import ShowListGroups from '@/components/Show/ShowListGroups.vue';
 import { Genres } from '@/config';
+import EmptyStateVue from '@/components/states/empty/EmptyState.vue';
 
 const { country } = inject('country') as CountryProvider;
 
@@ -40,6 +41,7 @@ watch(
   <div class="gap-12 flex-col flex">
     <ShowCardListSkeleton v-if="isLoading" />
     <ErrorStateVue v-if="errorMessage" :error="errorMessage" />
-    <ShowListGroups v-if="showListGroups" :groups="showListGroups" />
+    <EmptyStateVue v-if="showListGroups.length === 0" />
+    <ShowListGroups v-else :groups="showListGroups" />
   </div>
 </template>
