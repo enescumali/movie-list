@@ -3,6 +3,14 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
   root: true,
+  ignorePatterns: [
+    'node_modules/',
+    '**/node_modules/',
+    '/**/node_modules/*',
+    'out/',
+    'dist/',
+    'build/',
+  ],
   'extends': [
     'plugin:vue/recommended',
     'eslint:recommended',
@@ -17,5 +25,6 @@ module.exports = {
     'semi': 'off',
     '@typescript-eslint/semi': ['error', 'always'],
     "no-unexpected-multiline": "error"
-  }
+  },
+  
 };
