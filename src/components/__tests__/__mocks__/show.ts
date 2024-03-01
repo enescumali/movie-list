@@ -1,5 +1,4 @@
-import { Genres } from '@/config';
-import { type ShowCard, type ShowListGroups, type ShowListItem } from '@/types/Show';
+import { Genres, type ShowCard, type ShowListGroups, type ShowListItem } from '@/types/Show';
 
 export const showDetail: ShowCard = {
   id: 3344,
