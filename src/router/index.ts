@@ -21,7 +21,11 @@ const router = createRouter({
       component: ShowSearchVue,
       props: (route) => ({ query: route.query.q })
     }
-  ]
+  ],
+  scrollBehavior() {
+    // always scroll to top
+    return { top: 0 };
+  },
 });
 
 export default router;
