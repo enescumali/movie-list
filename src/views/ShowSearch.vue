@@ -16,10 +16,10 @@ const isLoading = ref<Boolean>(false);
 
 const findShow = async () => {
   const { data, error, loading } = await findShowByQuery(route.query.q as string);
-
-  show.value = data;
+  
+  show.value = data.value;
   errorMessage.value = error.value ? DEFAULT_ERROR_MESSAGE : ''; // API doesn't return meaningful error messages
-  isLoading.value = loading;
+  isLoading.value = loading.value;
 };
 
 onBeforeMount(async () => await findShow());

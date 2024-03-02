@@ -17,9 +17,9 @@ const isLoading = ref<boolean>(true);
 onBeforeMount(async () => {
   const { data, error, loading } = await getShowById(showId);
 
-  show.value = data;
+  show.value = data.value;
   errorMessage.value = error.value ? DEFAULT_ERROR_MESSAGE : ''; // API doesn't return meaningful error messages
-  isLoading.value = loading;
+  isLoading.value = loading.value;
 });
 </script>
 

@@ -22,7 +22,7 @@ const fetchShowsByGenre = async () => {
   showListGroups.value = data;
 
   errorMessage.value = error?.value?.message;
-  isLoading.value = loading;
+  isLoading.value = loading.value;
 };
 
 onBeforeMount(async () => {
