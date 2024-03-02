@@ -18,11 +18,12 @@ export const getShowListGroupsByGenres = (data: ShowListItem[], genres: Genre[])
       showListItemsByGenres[foundGenre]?.push(show);
     }
   });
-
+  
   Object.keys(showListItemsByGenres).map((genre) => {
     const showListByGenre = {
       genre,
-      items: showListItemsByGenres[genre as keyof ShowListItemsByGenres]
+      items: showListItemsByGenres[genre as keyof ShowListItemsByGenres]?.slice(0, 5)
+      // for now only show 5 shows
     } as ShowListGroups;
 
     showListGroups.push(showListByGenre);
